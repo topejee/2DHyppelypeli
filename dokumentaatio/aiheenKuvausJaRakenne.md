@@ -2,9 +2,9 @@
 
 Käyttäjät: Kuka tahansa.
 
-Kaikkien käyttäjien toiminnot: Pelin pelaaminen. 
-
-Peliä pelatessa: kontrolloida hahmoaan.	
+Kaikkien käyttäjien toiminnot: 
+* Peli valikosta käyttäjä voi valita asetukset peliä varten.
+* Pelin pelaus missä käyttä kontrolloi hahmoaan.
 
 (Mahdollisia lisä ominaisuuksia:
 pistemäärin talletus omalla nimellä, erinlaisia kenttiä ym.)
