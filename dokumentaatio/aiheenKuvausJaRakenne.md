@@ -7,7 +7,7 @@ Kaikkien käyttäjien toiminnot: Pelin pelaaminen.
 Peliä pelatessa: kontrolloida hahmoaan.	
 
 (Mahdollisia lisä ominaisuuksia:
-pistemäärin talletus omalla nimellä, erinlaisia kenttiä ym)
+pistemäärin talletus omalla nimellä, erinlaisia kenttiä ym.)
 
 
 
