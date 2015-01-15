@@ -4,7 +4,7 @@ Käyttäjät: Kuka tahansa.
 
 Kaikkien käyttäjien toiminnot: Pelin pelaaminen. 
 
-Peliä pelatessa: liikuttaa pelihahmoa.	
+Peliä pelatessa: kontrolloida hahmoaan.	
 
 (Mahdollisia lisä ominaisuuksia:
 pistemäärin talletus omalla nimellä, erinlaisia kenttiä ym)
