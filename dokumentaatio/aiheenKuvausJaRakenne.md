@@ -1,4 +1,4 @@
-﻿Aihe: Tavoite on tehdä 2DHyppelypeli, jossa neliskulmion muotoisella alustalla pelaaja kontrolloi hahmoaan. Peliä pelatessa hahmon on väistettävä erinlaisia asioita, tuhota vihollisia jne. Pelin tavoitteena on selvitä mahdollisimman kauan ja täten saada mahdollisimman suuri pistemäärä.
+﻿Aihe: Tavoite on tehdä 2DHyppelypeli, jossa 2d peli alustalla pelaaja kontrolloi hahmoaan. Peliä pelatessa hahmolla liikutaan eteenpäin (oikealla) jonka aikana on väistettävä erinlaisia asioita, tuhota vihollisia jne. Pelin tavoitteena on selvitä mahdollisimman kauan ja täten saada mahdollisimman suuri pistemäärä.
 
 Käyttäjät: Kuka tahansa.
 
