@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dhyppelypeli.dhyppelypeli;
+package dhyppelypeli.Oliot;
 
 /**
  *
  * @author Tommi
  */
-public class Testi {
-    
+public class Laatikko extends Hahmo {
+
+    public Laatikko() {
+        setLeveys(40);
+        setKorkeus(40);
+    }
+
 }

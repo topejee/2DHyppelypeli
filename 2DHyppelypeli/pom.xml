@@ -35,8 +35,7 @@
                 <configuration>
                     <instrumentation>
                         <includes>
-                            <include>ristinolla.logiikka/*.class</include>
-                            <include>ristinolla.tekoaly/*.class</include>
+                            <param>dhyppelypeli.Oliot*</param>
                         </includes>
                     </instrumentation>
                 </configuration>
@@ -46,17 +45,12 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>0.30</version>
-            </plugin>
-            <plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-                <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>2DHyppelypeli.logiikka.*</param>
+                         <param>dhyppelypeli.Oliot*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>ristinolla.logiikka.*</param>
+                         <param>dhyppelypeli.Oliot*</param>
                     </targetTests>
                 </configuration>
             </plugin>
