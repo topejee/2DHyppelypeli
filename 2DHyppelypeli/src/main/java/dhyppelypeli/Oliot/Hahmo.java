@@ -5,6 +5,7 @@
  */
 package dhyppelypeli.Oliot;
 
+import dhyppelypeli.Aloitus.Peli;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -73,6 +74,13 @@ public class Hahmo {
     public void piirra(Graphics g) {
         g.setColor(Color.white);
         g.fillRect(x, y, leveys, korkeus);
+    }
+    public Rectangle getHahmo(){
+        return hahmo;
+    }
+    
+    public void liiku(Peli This) {
+        getHahmo().setBounds(getX(), getY(), getLeveys(), getKorkeus());
     }
 
 }

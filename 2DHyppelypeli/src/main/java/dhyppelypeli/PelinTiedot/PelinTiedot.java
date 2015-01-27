@@ -5,12 +5,42 @@
  */
 package dhyppelypeli.PelinTiedot;
 
+import dhyppelypeli.Oliot.PeliHahmo;
+
 /**
  *
  * @author Tommi
  */
 public class PelinTiedot {
-    public PelinTiedot(){
-        
+
+    private int peliLaudanKorkeus;
+    private int peliLaudanLeveys;
+    private PeliHahmo peliHahmo;
+
+    public PelinTiedot(PeliHahmo peliHahmo) {
+        this.peliHahmo = peliHahmo;
+        peliLaudanKorkeus = 600;
+        peliLaudanLeveys = 800;
     }
+
+    public int getPelilaudanKorkeus() {
+        return peliLaudanKorkeus;
+    }
+
+    public int getPelilaudanLeveys() {
+        return peliLaudanLeveys;
+    }
+
+    public void setPeliLaudanLeveys(int i) {
+        peliLaudanLeveys = i;
+    }
+
+    public void setPeliLaudanKorkeus(int i) {
+        peliLaudanKorkeus = i;
+    }
+
+    public PeliHahmo getPeliHahmo() {
+        return peliHahmo;
+    }
+
 }

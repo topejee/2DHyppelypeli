@@ -5,6 +5,7 @@
  */
 package dhyppelypeli.Aloitus;
 
+import dhyppelypeli.Oliot.PeliHahmo;
 import dhyppelypeli.PelinTiedot.PelinTiedot;
 import dhyppelypeli.dhyppelypeli.Paavalikko;
 
@@ -15,6 +16,9 @@ import dhyppelypeli.dhyppelypeli.Paavalikko;
 public class Main {
 
     public static void main(String[] args) {
-        new Paavalikko(new PelinTiedot());
+        PeliHahmo peliHahmo = new PeliHahmo();
+        PelinTiedot pelinTiedot = new PelinTiedot(peliHahmo);
+        Peli pelaa = new Peli(pelinTiedot);
+        pelaa.aloita();
     }
 }
