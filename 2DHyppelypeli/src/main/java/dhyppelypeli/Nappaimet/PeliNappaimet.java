@@ -52,11 +52,35 @@ public class PeliNappaimet implements KeyListener {
         if (nappain == VK_R) {
             uusiPeli();
         }
-
+        if (peliHahmo.getLiikuAlas()) {
+            peliHahmo.setY(peliHahmo.getY() + peliHahmo.getNopeus());
+        }
+        if (peliHahmo.getLiikuYlos()) {
+            peliHahmo.setY(peliHahmo.getY() - peliHahmo.getNopeus());
+        }
+        if (peliHahmo.getLiikuVasemmalle()) {
+            peliHahmo.setX(peliHahmo.getX() - peliHahmo.getNopeus());
+        }
+        if (peliHahmo.getLiikuOikealle()) {
+            peliHahmo.setX(peliHahmo.getX() + peliHahmo.getNopeus());
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        int nappain = e.getKeyCode();
+        if (nappain == peliHahmo.getVasenNappain()) {
+            peliHahmo.setLiikuVasemmalleFalse();
+        }
+        if (nappain == peliHahmo.getOikeaNappain()) {
+            peliHahmo.setLiikuOikealleFalse();
+        }
+        if (nappain == peliHahmo.getYlaNappain()) {
+            peliHahmo.setLiikuYlosFalse();
+        }
+        if (nappain == peliHahmo.getAlaNappain()) {
+            peliHahmo.setLiikuAlasFalse();
+        }
 
     }
 
@@ -70,16 +94,16 @@ public class PeliNappaimet implements KeyListener {
 
     private void ensimmainenPelaaja(int nappain) {
         if (nappain == peliHahmo.getVasenNappain()) {
-            peliHahmo.setX(peliHahmo.getX() - peliHahmo.getNopeus());
+            peliHahmo.setLiikuVasemmalleTrue();
         }
         if (nappain == peliHahmo.getOikeaNappain()) {
-            peliHahmo.setX(peliHahmo.getX() + peliHahmo.getNopeus());
+            peliHahmo.setLiikuOikealleTrue();
         }
-          if (nappain == peliHahmo.getYlaNappain()) {
-            peliHahmo.setY(peliHahmo.getY() - peliHahmo.getNopeus());
+        if (nappain == peliHahmo.getYlaNappain()) {
+            peliHahmo.setLiikuYlosTrue();
         }
         if (nappain == peliHahmo.getAlaNappain()) {
-            peliHahmo.setY(peliHahmo.getY() + peliHahmo.getNopeus());
+            peliHahmo.setLiikuAlasTrue();
         }
     }
 }

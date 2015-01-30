@@ -19,6 +19,10 @@ public class PeliHahmo extends Hahmo {
     private int oikeaNappain;
     private int ylaNappain;
     private int alaNappain;
+    private boolean liikuYlos;
+    private boolean liikuAlas;
+    private boolean liikuOikealle;
+    private boolean liikuVasemmalle;
 
     public PeliHahmo() {
         setKorkeus(50);
@@ -41,11 +45,61 @@ public class PeliHahmo extends Hahmo {
     public int getOikeaNappain() {
         return oikeaNappain;
     }
+
     public int getYlaNappain() {
         return ylaNappain;
     }
+
     public int getAlaNappain() {
         return alaNappain;
+    }
+
+    public void setLiikuYlosTrue() {
+        liikuYlos = true;
+    }
+
+    public void setLiikuAlasTrue() {
+        liikuAlas = true;
+    }
+
+    public void setLiikuVasemmalleTrue() {
+        liikuVasemmalle = true;
+    }
+
+    public void setLiikuOikealleTrue() {
+        liikuOikealle = true;
+    }
+
+    public void setLiikuYlosFalse() {
+        liikuYlos = false;
+    }
+
+    public void setLiikuAlasFalse() {
+        liikuAlas = false;
+    }
+
+    public void setLiikuVasemmalleFalse() {
+        liikuVasemmalle = false;
+    }
+
+    public void setLiikuOikealleFalse() {
+        liikuOikealle = false;
+    }
+
+    public Boolean getLiikuOikealle() {
+        return liikuOikealle;
+    }
+
+    public Boolean getLiikuVasemmalle() {
+        return liikuVasemmalle;
+    }
+
+    public Boolean getLiikuYlos() {
+        return liikuYlos;
+    }
+
+    public Boolean getLiikuAlas() {
+        return liikuAlas;
     }
 
 }
