@@ -1,5 +1,6 @@
 package dhyppelypeli.dhyppelypeli;
 
+import dhyppelypeli.Nappaimet.KlikkaustenKuuntelija;
 import dhyppelypeli.PelinTiedot.PelinTiedot;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class Paavalikko extends javax.swing.JFrame {
      * @param pelintiedot sisältää peliin kuuluvat tiedot
      */
     public Paavalikko(PelinTiedot pelintiedot) {
-
+        this.setVisible(true);
         pelinTiedot = pelintiedot;
         initComponents();
         nappaimet();
@@ -43,12 +44,16 @@ public class Paavalikko extends javax.swing.JFrame {
         pelaa = new javax.swing.JButton();
         asetukset = new javax.swing.JButton();
         lopeta = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         pelaa.setText("Pelaa");
+        pelaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pelaaActionPerformed(evt);
+            }
+        });
 
         asetukset.setText("Asetukset");
 
@@ -59,46 +64,34 @@ public class Paavalikko extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 14, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pelaa, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(asetukset, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lopeta, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(189, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(pelaa, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(asetukset, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(153, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lopeta, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(asetukset)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(56, 56, 56)
                 .addComponent(pelaa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
+                .addComponent(asetukset)
+                .addGap(27, 27, 27)
                 .addComponent(lopeta)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,16 +101,16 @@ public class Paavalikko extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lopetaActionPerformed
 
+    private void pelaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pelaaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pelaaActionPerformed
+
     /**
      * @param args the command line arguments
      */
-//    private Pallo pallo;
-//    private Maila yksi;
-//    private Maila kaksi;
     private PelinTiedot pelinTiedot;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton asetukset;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton lopeta;
     private javax.swing.JButton pelaa;
     // End of variables declaration//GEN-END:variables
@@ -125,10 +118,10 @@ public class Paavalikko extends javax.swing.JFrame {
      * Metodi valmistaan nappaimien toiminnallisuuden.
      */
     public void nappaimet() {
-//        KlikkaustenKuuntelija kopioija = new KlikkaustenKuuntelija(this, pelinTiedot);
-//        pelaa.addActionListener(kopioija);
-//        asetukset.addActionListener(kopioija);
-//        lopeta.addActionListener(kopioija);
+        KlikkaustenKuuntelija kopioija = new KlikkaustenKuuntelija(this, pelinTiedot);
+        pelaa.addActionListener(kopioija);
+        asetukset.addActionListener(kopioija);
+        lopeta.addActionListener(kopioija);
     }
 
 }

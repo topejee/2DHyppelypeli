@@ -23,3 +23,10 @@ Pelin toiminnallisuutta. hahmojen piirron ja niiden liikuttavuuden
 Kulunut aika:
 alle 10h. (vaikea arvoida, koska tein monina eri aikoina aina pienen määrän)
 
+2.6.2014
+
+Mitä tein:
+Korjailua, käyttöliittymää ja javadocia
+
+Kulunut aika:
+Vaikea arvioida.

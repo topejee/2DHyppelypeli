@@ -16,9 +16,6 @@ import dhyppelypeli.dhyppelypeli.Paavalikko;
 public class Main {
 
     public static void main(String[] args) {
-        PeliHahmo peliHahmo = new PeliHahmo();
-        PelinTiedot pelinTiedot = new PelinTiedot(peliHahmo);
-        Peli pelaa = new Peli(pelinTiedot);
-        pelaa.aloita();
+      Paavalikko valikko = new Paavalikko(new PelinTiedot());
     }
 }

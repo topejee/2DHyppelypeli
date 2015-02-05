@@ -8,7 +8,7 @@ package dhyppelypeli.PelinTiedot;
 import dhyppelypeli.Oliot.PeliHahmo;
 
 /**
- *
+ * Sisältää pelissä olevat tiedot
  * @author Tommi
  */
 public class PelinTiedot {
@@ -17,8 +17,8 @@ public class PelinTiedot {
     private int peliLaudanLeveys;
     private PeliHahmo peliHahmo;
 
-    public PelinTiedot(PeliHahmo peliHahmo) {
-        this.peliHahmo = peliHahmo;
+    public PelinTiedot() {
+        this.peliHahmo = new PeliHahmo();
         peliLaudanKorkeus = 600;
         peliLaudanLeveys = 800;
     }

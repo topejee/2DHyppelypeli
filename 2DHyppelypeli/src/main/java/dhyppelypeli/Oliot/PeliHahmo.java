@@ -6,7 +6,15 @@
 package dhyppelypeli.Oliot;
 
 import dhyppelypeli.Aloitus.Peli;
+import dhyppelypeli.Grafiikka.PeliHahmoPiirto;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -23,6 +31,11 @@ public class PeliHahmo extends Hahmo {
     private boolean liikuAlas;
     private boolean liikuOikealle;
     private boolean liikuVasemmalle;
+    private boolean maassa;
+    private int hyppaa;
+    private int osuma;
+    private int elamat;
+    private PeliHahmoPiirto peliHahmoPiirto;
 
     public PeliHahmo() {
         setKorkeus(50);
@@ -32,6 +45,11 @@ public class PeliHahmo extends Hahmo {
         oikeaNappain = (KeyEvent.VK_D);
         ylaNappain = (KeyEvent.VK_W);
         alaNappain = (KeyEvent.VK_S);
+        maassa = true;
+        hyppaa = 0;
+        osuma = 0;
+        elamat = 3;
+        this.peliHahmoPiirto = new PeliHahmoPiirto(this);
     }
 
     public int getNopeus() {
@@ -100,6 +118,75 @@ public class PeliHahmo extends Hahmo {
 
     public Boolean getLiikuAlas() {
         return liikuAlas;
+    }
+
+    public Boolean getMaassa() {
+        return maassa;
+    }
+/**
+ * Metodi liikuttaa PeliHahmoa
+ * @param This 
+ */
+    @Override
+    public void liiku(Peli This) {
+        getHahmo().setBounds(getX(), getY(), getLeveys(), getKorkeus());
+        if (!getMaassa()) {
+            if (getLiikuAlas()) {
+                setY(getY() + getNopeus());
+            }
+            if (getLiikuYlos()) {
+                setY(getY() - getNopeus());
+            }
+            if (getLiikuVasemmalle()) {
+                setX(getX() - getNopeus());
+            }
+            if (getLiikuOikealle()) {
+                setX(getX() + getNopeus());
+            }
+        } else {
+            if (getLiikuVasemmalle()) {
+                setX(getX() - getNopeus());
+            }
+            if (getLiikuOikealle()) {
+                setX(getX() + getNopeus());
+            }
+            if (hyppaa >= 21) {
+                setY(getY() - getNopeus());
+                hyppaa--;
+            } else if (hyppaa < 21 && getY() < 550 && osuma == 0) {
+                setY(getY() + getNopeus());
+                hyppaa = 1;
+            } else {
+                hyppaa = 0;
+            }
+            if (osuma != 0) {
+                osuma--;
+            }
+        }
+    }
+
+    public void setOsuma() {
+        osuma = 10;
+    }
+
+    public void setHyppaaTrue() {
+        hyppaa = 40;
+    }
+
+    public int getHyppaaTrue() {
+        return hyppaa;
+    }
+
+    public int getElamat() {
+        return elamat;
+    }
+
+    public void vahennaElamat() {
+        elamat--;
+    }
+
+    public PeliHahmoPiirto getPeliHahmoPiirto() {
+        return peliHahmoPiirto;
     }
 
 }

@@ -6,29 +6,46 @@
 package dhyppelypeli.Oliot;
 
 import dhyppelypeli.Aloitus.Peli;
-import java.awt.Color;
-import java.awt.Graphics;
+import dhyppelypeli.Grafiikka.LaatikkoPiirto;
 
 /**
  *
  * @author Tommi
  */
 public class Laatikko extends Hahmo {
-
+private LaatikkoPiirto laatikkoPiirto;
     public Laatikko() {
         setLeveys(40);
         setKorkeus(40);
+        this.laatikkoPiirto = new LaatikkoPiirto(this);
     }
-
+/**
+ * Metodi liikuttaa laatikkoa
+ * @param This 
+ */
     @Override
     public void liiku(Peli This) {
-        setX(getX()-5);
+        setX(getX() - 5);
         getHahmo().setBounds(getX(), getY(), getLeveys(), getKorkeus());
+        tormaustestiPeliHahmo(This);
     }
-    @Override
-     public void piirra(Graphics g) {
-        g.setColor(Color.red);
-        g.fillRect(getX(),getY(), getLeveys(), getKorkeus());
+/**
+ * Testaa törmääkö PeliHahmo esineeseen
+ * @param peli pelattava peli
+ */
+    public void tormaustestiPeliHahmo(Peli peli) {
+        if (getHahmo().intersects(peli.getPeliHahmo().getHahmo())) {
+            peli.getPeliHahmo().setOsuma();
+            if (getHahmo().intersects(peli.getPeliHahmo().getHahmo()) && peli.getPeliHahmo().getX() - getX() == -45) {
+                peli.getPeliHahmo().vahennaElamat();
+            } else {
+                peli.getPeliHahmo().setY(501);
+            }
+        }
     }
+        public LaatikkoPiirto getLaatikkoPiirto(){
+        return laatikkoPiirto;
+    }
+
 
 }

@@ -6,8 +6,6 @@
 package dhyppelypeli.Oliot;
 
 import dhyppelypeli.Aloitus.Peli;
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Rectangle;
 
 /**
@@ -21,6 +19,7 @@ public class Hahmo {
     private int korkeus;
     private int leveys;
     private Rectangle hahmo;
+    //   private HahmoPiirto hahmoPiirto;
 
     public Hahmo() {
         this.x = 0;
@@ -28,6 +27,7 @@ public class Hahmo {
         this.korkeus = 0;
         this.leveys = 0;
         this.hahmo = new Rectangle(x, y, leveys, korkeus);
+        //       this.hahmoPiirto = new HahmoPiirto(this);
     }
 
     public void setKorkeus(int x) {
@@ -71,16 +71,20 @@ public class Hahmo {
         return leveys;
     }
 
-    public void piirra(Graphics g) {
-        g.setColor(Color.white);
-        g.fillRect(x, y, leveys, korkeus);
-    }
-    public Rectangle getHahmo(){
+    public Rectangle getHahmo() {
         return hahmo;
     }
-    
+
+    /**
+     * Metodi liikuttaa Hahmoa
+     *
+     * @param This
+     */
     public void liiku(Peli This) {
         getHahmo().setBounds(getX(), getY(), getLeveys(), getKorkeus());
     }
+//    public HahmoPiirto getHahmoPiirto(){
+//        return hahmoPiirto;
+//    }
 
 }
