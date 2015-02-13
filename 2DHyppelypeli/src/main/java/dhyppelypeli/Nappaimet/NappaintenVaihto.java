@@ -59,17 +59,21 @@ public class NappaintenVaihto implements ActionListener {
         totta = true;
         nappula = (JButton) ae.getSource();
         teksti = nappula.getName();
-        if (teksti.equals("ylaNappain")) {
+        if (teksti.equals("alas")) {
             nappain();
+            pelinTiedot.getPeliHahmo().setAlaNappain(nappain);
         }
-        if (teksti.equals("sdas")) {
+        if (teksti.equals("vasen")) {
             nappain();
+            pelinTiedot.getPeliHahmo().setVasenNappain(nappain);
         }
-        if (teksti.equals("o")) {
+        if (teksti.equals("oikea")) {
             nappain();
+            pelinTiedot.getPeliHahmo().setOikeaNappain(nappain);
         }
-        if (teksti.equals("os")) {
+        if (teksti.equals("ylos")) {
             nappain();
+            pelinTiedot.getPeliHahmo().setYlaNappain(nappain);
         }
         if (teksti.equals("Takaisin")) {
             valikko.setVisible(false);

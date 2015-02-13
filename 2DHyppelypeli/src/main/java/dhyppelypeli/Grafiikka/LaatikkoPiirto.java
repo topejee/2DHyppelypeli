@@ -8,6 +8,9 @@ package dhyppelypeli.Grafiikka;
 import dhyppelypeli.Oliot.Laatikko;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -27,7 +30,11 @@ public class LaatikkoPiirto {
      * @param g
      */
     public void piirra(Graphics g) {
-        g.setColor(Color.red);
-        g.fillRect(hahmo.getX(), hahmo.getY(), hahmo.getLeveys(), hahmo.getKorkeus());
+        try {
+            BufferedImage kuva = ImageIO.read(getClass().getResourceAsStream("/laatikko.png"));
+            g.drawImage(kuva, hahmo.getX(), hahmo.getY(), Color.yellow, null);
+        } catch (IOException e) {
+            System.out.println("Ei ollut kuvaa");
+        }
     }
 }

@@ -5,7 +5,10 @@
  */
 package dhyppelypeli.Oliot;
 
+import dhyppelypeli.Aloitus.Peli;
+import dhyppelypeli.PelinTiedot.PelinTiedot;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferStrategy;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -89,6 +92,19 @@ public class HahmoTest {
     public void kasvaakoYyhdella() {
         hahmo.kasvataY();
         assertEquals(1, hahmo.getY());
+    }
+
+    @Test
+    public void onkoHahmoOikea() {
+        Rectangle x = new Rectangle();
+        x = hahmo.getHahmo();
+        assertEquals(x, hahmo.getHahmo());
+    }
+    @Test
+    public void liikkumisenXjaYarvo(){
+        hahmo.liiku(new Peli(new PelinTiedot()));
+        System.out.println("asdas" + hahmo.getHahmo().getBounds());
+      //  assertArrayEquals(java.awt.Rectangle[x=0,y=0,width=0,height=0], hahmo.getHahmo().getBounds());
     }
 
 }

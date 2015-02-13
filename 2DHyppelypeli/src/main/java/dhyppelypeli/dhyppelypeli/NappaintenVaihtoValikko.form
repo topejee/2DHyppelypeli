@@ -116,21 +116,21 @@
     <Component class="javax.swing.JButton" name="oikeaPelaajaAlas">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;PelaajaYksiYl&#xf6;s&quot;" type="code"/>
+          <Connection code="&quot;alas&quot;" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="oikeaPelaajaYlos">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;PelaajaKaksiYl&#xf6;s&quot;" type="code"/>
+          <Connection code="&quot;oikea&quot;&#xa;+ &quot;&quot;" type="code"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="vasenPelaajaYlos">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;PelaajaYksiAlas&quot;" type="code"/>
+          <Connection code="&quot;Yla&quot;&#xa;" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -151,7 +151,7 @@
     <Component class="javax.swing.JButton" name="vasenPelaajaAlas">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;PelaajaKaksiAlas&quot;" type="code"/>
+          <Connection code="&quot;vasen&quot;" type="code"/>
         </Property>
       </Properties>
       <Events>

@@ -9,8 +9,10 @@ import dhyppelypeli.Aloitus.Peli;
 import dhyppelypeli.Grafiikka.PeliPiirto;
 import dhyppelypeli.Oliot.PeliHahmo;
 import dhyppelypeli.PelinTiedot.PelinTiedot;
+import dhyppelypeli.dhyppelypeli.Paavalikko;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import static java.awt.event.KeyEvent.VK_M;
 import static java.awt.event.KeyEvent.VK_P;
 import static java.awt.event.KeyEvent.VK_R;
 import java.awt.event.KeyListener;
@@ -73,6 +75,9 @@ public class PeliNappaimet implements KeyListener {
         if (nappain == VK_R) {
             uusiPeli();
         }
+        if (nappain == VK_M) {
+            valikko();
+        }
     }
 
     /**
@@ -83,7 +88,7 @@ public class PeliNappaimet implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int nappain = e.getKeyCode();
-        if (peliHahmo.getMaassa()) {
+        if (!peliHahmo.getMaassa()) {
             if (nappain == peliHahmo.getVasenNappain()) {
                 peliHahmo.setLiikuVasemmalleFalse();
             }
@@ -110,7 +115,7 @@ public class PeliNappaimet implements KeyListener {
      * Metodi aloittaa pelin uudestaan
      */
     private void uusiPeli() {
-        peli.getPeliAlusta().setVisible(false);
+        peli.getPeliPiirto().getPeliAlusta().setVisible(false);
         peli.getPeliPiirto().tauko();
         peli = null;
         Peli peli = new Peli(pelinTiedot);
@@ -150,5 +155,16 @@ public class PeliNappaimet implements KeyListener {
                 }
             }
         }
+    }
+
+    /**
+     * Metodi vie käyttäjän takaisin päävalikkoon.
+     */
+    private void valikko() {
+        peli.getPeliPiirto().getPeliAlusta().setVisible(false);
+        peli.getPeliPiirto().tauko();
+        peli = null;
+        pelinTiedot.getPeliHahmo().setElamat(3);
+        new Paavalikko(pelinTiedot).setVisible(true);
     }
 }

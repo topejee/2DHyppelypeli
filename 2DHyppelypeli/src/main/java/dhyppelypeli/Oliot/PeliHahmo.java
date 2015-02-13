@@ -123,10 +123,12 @@ public class PeliHahmo extends Hahmo {
     public Boolean getMaassa() {
         return maassa;
     }
-/**
- * Metodi liikuttaa PeliHahmoa
- * @param This 
- */
+
+    /**
+     * Metodi liikuttaa PeliHahmoa
+     *
+     * @param This
+     */
     @Override
     public void liiku(Peli This) {
         getHahmo().setBounds(getX(), getY(), getLeveys(), getKorkeus());
@@ -189,4 +191,26 @@ public class PeliHahmo extends Hahmo {
         return peliHahmoPiirto;
     }
 
+    public void setYlaNappain(int x) {
+        ylaNappain = x;
+    }
+
+    public void setAlaNappain(int x) {
+        alaNappain = x;
+    }
+
+    public void setVasenNappain(int x) {
+        vasenNappain = x;
+    }
+
+    public void setOikeaNappain(int x) {
+        oikeaNappain = x;
+    }
+
+    public void setElamat(int x) {
+        elamat = x;
+    }
+    public void setMaassa(boolean x){
+        maassa = x;
+    }
 }

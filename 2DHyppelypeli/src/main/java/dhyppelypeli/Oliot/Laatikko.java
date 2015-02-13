@@ -13,26 +13,34 @@ import dhyppelypeli.Grafiikka.LaatikkoPiirto;
  * @author Tommi
  */
 public class Laatikko extends Hahmo {
-private LaatikkoPiirto laatikkoPiirto;
+
+    private LaatikkoPiirto laatikkoPiirto;
+    private int liikkumisNopeus;
+
     public Laatikko() {
         setLeveys(40);
         setKorkeus(40);
         this.laatikkoPiirto = new LaatikkoPiirto(this);
+        this.liikkumisNopeus = 0;
     }
-/**
- * Metodi liikuttaa laatikkoa
- * @param This 
- */
+
+    /**
+     * Metodi liikuttaa laatikkoa
+     *
+     * @param This
+     */
     @Override
     public void liiku(Peli This) {
-        setX(getX() - 5);
+        setX(getX() - liikkumisNopeus);
         getHahmo().setBounds(getX(), getY(), getLeveys(), getKorkeus());
         tormaustestiPeliHahmo(This);
     }
-/**
- * Testaa törmääkö PeliHahmo esineeseen
- * @param peli pelattava peli
- */
+
+    /**
+     * Testaa törmääkö PeliHahmo esineeseen
+     *
+     * @param peli pelattava peli
+     */
     public void tormaustestiPeliHahmo(Peli peli) {
         if (getHahmo().intersects(peli.getPeliHahmo().getHahmo())) {
             peli.getPeliHahmo().setOsuma();
@@ -43,9 +51,25 @@ private LaatikkoPiirto laatikkoPiirto;
             }
         }
     }
-        public LaatikkoPiirto getLaatikkoPiirto(){
+
+    /**
+     * Metodi testaa törmääkö laatikko toiseen laatikkoon
+     *
+     * @param peli pelattava peli
+     * @return
+     */
+
+    
+    public LaatikkoPiirto getLaatikkoPiirto() {
         return laatikkoPiirto;
     }
 
+    public void setLiikkumisNopeus(int x) {
+        liikkumisNopeus = x;
+    }
+
+    public int getLiikkumisNopeus() {
+        return liikkumisNopeus;
+    }
 
 }

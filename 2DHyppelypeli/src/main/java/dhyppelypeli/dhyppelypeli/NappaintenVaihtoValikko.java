@@ -8,7 +8,6 @@ package dhyppelypeli.dhyppelypeli;
 import dhyppelypeli.Nappaimet.NappaintenVaihto;
 import dhyppelypeli.PelinTiedot.PelinTiedot;
 
-
 /**
  *
  * @author Tommi
@@ -53,11 +52,13 @@ public class NappaintenVaihtoValikko extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        oikeaPelaajaAlas.setText("PelaajaYksiYlös");
+        oikeaPelaajaAlas.setText("alas");
 
-        oikeaPelaajaYlos.setText("PelaajaKaksiYlös");
+        oikeaPelaajaYlos.setText("oikea"
+            + "");
 
-        vasenPelaajaYlos.setText("PelaajaYksiAlas");
+        vasenPelaajaYlos.setText("Yla"
+        );
         vasenPelaajaYlos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vasenPelaajaYlosActionPerformed(evt);
@@ -72,7 +73,7 @@ public class NappaintenVaihtoValikko extends javax.swing.JFrame {
             }
         });
 
-        vasenPelaajaAlas.setText("PelaajaKaksiAlas");
+        vasenPelaajaAlas.setText("vasen");
         vasenPelaajaAlas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vasenPelaajaAlasActionPerformed(evt);
@@ -216,10 +217,10 @@ public class NappaintenVaihtoValikko extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void nappainTekstit() {
-        oikeaPelaajaAlas.setName("oikeaPelaajaAlas");
-        oikeaPelaajaYlos.setName("oikeaPelaajaYlos");
-        vasenPelaajaYlos.setName("vasenPelaajaYlos");
-        vasenPelaajaAlas.setName("vasenPelaajaAlas");
+        oikeaPelaajaAlas.setName("oikea");
+        oikeaPelaajaYlos.setName("alas");
+        vasenPelaajaYlos.setName("ylos");
+        vasenPelaajaAlas.setName("vasen");
         asetukset.setName("Takaisin");
         oikeaPelaajaAlas.setText((char) pelinTiedot.getPeliHahmo().getAlaNappain() + "");
         oikeaPelaajaYlos.setText((char) pelinTiedot.getPeliHahmo().getYlaNappain() + "");

@@ -6,24 +6,15 @@
 package dhyppelypeli.Aloitus;
 
 import dhyppelypeli.Grafiikka.PeliPiirto;
-import dhyppelypeli.Nappaimet.PeliNappaimet;
+
 import dhyppelypeli.Oliot.Laatikko;
 import dhyppelypeli.Oliot.PeliHahmo;
 import dhyppelypeli.PelinTiedot.PelinTiedot;
-import java.awt.BorderLayout;
 import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 
 /**
  *
@@ -31,27 +22,26 @@ import javax.swing.JFrame;
  */
 public class Peli extends Canvas implements Runnable {
 
-    private JFrame frame;
-    private Dimension peliLauta;
-    private PeliNappaimet nappaimet;
-    private BufferStrategy grafiikat;
-    private BufferedImage kuva;
     private PelinTiedot pelinTiedot;
     private boolean tauko;
     private PeliHahmo peliHahmo;
     private ArrayList<Laatikko> laatikot;
     private int pisteet;
     private PeliPiirto piirto;
+    private int laatikoidenNopeus;
+    public boolean maassa;
 
     public Peli(PelinTiedot tiedot) {
         pisteet = 0;
+        laatikoidenNopeus = 5;
         laatikot = new ArrayList<Laatikko>();
         this.pelinTiedot = tiedot;
         this.peliHahmo = tiedot.getPeliHahmo();
         this.peliHahmo.setX(10);
         this.peliHahmo.setY(pelinTiedot.getPelilaudanKorkeus() - peliHahmo.getKorkeus());
-        piirto = new PeliPiirto(pelinTiedot,this);
+        piirto = new PeliPiirto(pelinTiedot, this);
         piirto.pelinGrafiikka();
+        maassa = true;
     }
 
     /**
@@ -61,8 +51,16 @@ public class Peli extends Canvas implements Runnable {
     public void run() {
         while (true) {
             pisteet++;
+            piirto.setPisteet(pisteet);
             if (tauko == false) {
                 pelinSiirrotKulku();
+            }
+            if (pisteet % 100 == 0) {
+                laatikoidenNopeus++;
+            }
+            if (pisteet >= 100) {
+                getPeliHahmo().setMaassa(false);
+                maassa = false;
             }
             hidastus();
         }
@@ -84,10 +82,6 @@ public class Peli extends Canvas implements Runnable {
      */
     private void lopeta() {
         System.exit(0);
-    }
-
-    public JFrame getPeliAlusta() {
-        return frame;
     }
 
     /**
@@ -117,6 +111,7 @@ public class Peli extends Canvas implements Runnable {
         lisaaMahdollisestiLaatikko();
         for (Laatikko laatikko : laatikot) {
             laatikko.liiku(this);
+
         }
     }
 
@@ -128,8 +123,14 @@ public class Peli extends Canvas implements Runnable {
         int satunnainen = x.nextInt(80) + 1;
         if (satunnainen == 10) {
             Laatikko laatikko = new Laatikko();
-            laatikko.setY(pelinTiedot.getPelilaudanKorkeus() - peliHahmo.getKorkeus());
             laatikko.setX(pelinTiedot.getPelilaudanLeveys() - peliHahmo.getKorkeus());
+            if (maassa) {
+                laatikko.setY(pelinTiedot.getPelilaudanKorkeus() - peliHahmo.getKorkeus());
+            } else {
+                satunnainen = x.nextInt(pelinTiedot.getPelilaudanKorkeus()) + 1;
+                laatikko.setY(pelinTiedot.getPelilaudanKorkeus() - satunnainen);
+            }
+            laatikko.setLiikkumisNopeus(laatikoidenNopeus);
             laatikot.add(laatikko);
             piirto.LisaaLaatikot(laatikot);
         }
@@ -153,6 +154,10 @@ public class Peli extends Canvas implements Runnable {
 
     public boolean getTauko() {
         return tauko;
+    }
+
+    public int getPisteet() {
+        return pisteet;
     }
 
 }

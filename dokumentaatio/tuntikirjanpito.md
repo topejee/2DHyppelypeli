@@ -30,3 +30,11 @@ Korjailua, käyttöliittymää ja javadocia
 
 Kulunut aika:
 Vaikea arvioida.
+
+2.13.2014
+
+Mitä tien: 
+vähän pientä korjaulua/lisäilyä
+
+Kulunut aika:
+Muutama tunti (ei ollut kovin paljon aikaa)

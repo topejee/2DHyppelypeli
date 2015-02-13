@@ -20,10 +20,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -47,8 +43,8 @@ public class PeliPiirto extends Canvas {
     public PeliPiirto(PelinTiedot tiedot, Peli peli) {
         this.peli = peli;
         this.pelinTiedot = tiedot;
-        pisteet = 0;
-        laatikot = new ArrayList<Laatikko>();
+        this.pisteet = 0;
+        this.laatikot = new ArrayList<Laatikko>();
         this.pelinTiedot = tiedot;
         this.peliHahmo = tiedot.getPeliHahmo();
         this.peliHahmo.setX(10);
@@ -85,7 +81,7 @@ public class PeliPiirto extends Canvas {
         Graphics g = kuvaa.getDrawGraphics();
         g.setColor(Color.WHITE);
         g.drawImage(kuva, 0, 0, pelinTiedot.getPelilaudanLeveys() + 10, pelinTiedot.getPelilaudanKorkeus() + 47, null);
-        g.drawString("Uusi peli: R   Tauko: P    NAPPAIMET W,A,S,D   PISTEET " + pisteet + "  ELÄMÄT " + peliHahmo.getElamat() + "/3", pelinTiedot.getPelilaudanLeveys() - 480, 10);
+        g.drawString("Uusi peli: R   Tauko: P  Valikko:  M   NAPPAIMET W,A,S,D   PISTEET " + pisteet + "  ELÄMÄT " + peliHahmo.getElamat() + "/3", pelinTiedot.getPelilaudanLeveys() - 500, 10);
         peliHahmo.getPeliHahmoPiirto().piirra(g);
         g.setColor(Color.red);
         piirtoLaatikot(g);
@@ -151,7 +147,16 @@ public class PeliPiirto extends Canvas {
     public void LisaaLaatikot(ArrayList<Laatikko> laatikot) {
         this.laatikot = laatikot;
     }
-    public Peli getPeli(){
+
+    public Peli getPeli() {
         return peli;
+    }
+
+    public JFrame getPeliAlusta() {
+        return frame;
+    }
+
+    public void setPisteet(int x) {
+        pisteet = x;
     }
 }
