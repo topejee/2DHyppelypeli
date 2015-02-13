@@ -100,11 +100,6 @@ public class HahmoTest {
         x = hahmo.getHahmo();
         assertEquals(x, hahmo.getHahmo());
     }
-    @Test
-    public void liikkumisenXjaYarvo(){
-        hahmo.liiku(new Peli(new PelinTiedot()));
-        System.out.println("asdas" + hahmo.getHahmo().getBounds());
-      //  assertArrayEquals(java.awt.Rectangle[x=0,y=0,width=0,height=0], hahmo.getHahmo().getBounds());
-    }
+ 
 
 }
