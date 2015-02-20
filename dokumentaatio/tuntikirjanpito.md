@@ -38,3 +38,11 @@ vähän pientä korjaulua/lisäilyä
 
 Kulunut aika:
 Muutama tunti (ei ollut kovin paljon aikaa)
+
+2.20.2014
+
+Mitä tien: 
+En paljoa mitään, koska liian kiireinen viikko, josta johtuen ei vain riittänyt jaksamista
+
+Kulunut aika:
+alle 1h
